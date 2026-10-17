@@ -1,0 +1,7 @@
+"""Allow ``python -m reprobot`` to use the ReproBot CLI."""
+
+from .cli import main
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

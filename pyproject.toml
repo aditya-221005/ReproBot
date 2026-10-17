@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools==75.8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reprobot"
+version = "0.1.0"
+description = "Evidence-backed Python build and test runner"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Aditya Prasad Sahoo" },
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.5",
+]
+
+[project.scripts]
+reprobot = "reprobot.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
