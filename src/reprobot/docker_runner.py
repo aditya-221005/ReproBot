@@ -124,6 +124,8 @@ class DockerRunner:
             self.memory,
             "--pids-limit",
             self.pids_limit,
+            "--pull",
+            "never",
             self.image,
             *command,
         ]

@@ -78,8 +78,9 @@ python@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0
 ```
 
 This digest was verified locally for the `linux/amd64` image created from
-`python:3.12.8-slim-bookworm`. Docker must be able to obtain this image before
-an end-to-end run. ReproBot itself does not pull images automatically.
+`python:3.12.8-slim-bookworm`. The image must already be present before an
+end-to-end run; ReproBot passes `--pull never` and will not trigger an implicit
+image download.
 
 ## Installation
 
