@@ -35,6 +35,42 @@ class DetectionSummary:
     dependency_files: list[str] = field(default_factory=list)
     lockfiles: list[str] = field(default_factory=list)
     test_configuration: list[str] = field(default_factory=list)
+    lockfiles_supported: list[str] = field(default_factory=list)
+    lockfiles_unsupported: list[str] = field(default_factory=list)
+    test_frameworks: list[str] = field(default_factory=list)
+    tests_exist: bool = False
+
+
+@dataclass(frozen=True)
+class LockfileDetection:
+    """A lockfile name and the execution support known for its format."""
+
+    path: str
+    format: str
+    supported: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class DetectionResult:
+    """Result of inspecting a local repository without running project code."""
+
+    supported: bool
+    repository: RepositoryInfo
+    python_project: bool
+    dependency_files: list[str] = field(default_factory=list)
+    lockfiles: list[LockfileDetection] = field(default_factory=list)
+    test_configuration: list[str] = field(default_factory=list)
+    test_frameworks: list[str] = field(default_factory=list)
+    tests_exist: bool = False
+    reasons: list[str] = field(default_factory=list)
+
+    def to_dict(self) -> dict[str, Any]:
+        """Return a JSON-compatible representation of this detection result."""
+
+        value = asdict(self)
+        value["lockfiles"] = [asdict(lockfile) for lockfile in self.lockfiles]
+        return value
 
 
 @dataclass(frozen=True)
