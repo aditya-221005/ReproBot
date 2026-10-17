@@ -3,3 +3,9 @@ __pycache__/
 .pytest_cache/
 .venv/
 venv/
+reports/
+report.json
+reprobot-report*.json
+*.log
+.reprobot-tmp/
+*.egg-info/

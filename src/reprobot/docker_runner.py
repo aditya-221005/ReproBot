@@ -16,7 +16,9 @@ from uuid import uuid4
 from .models import CommandResult
 
 
-DEFAULT_IMAGE = "python:3.12.8-slim-bookworm"
+DEFAULT_IMAGE = (
+    "python@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0"
+)
 DEFAULT_TIMEOUT_SECONDS = 120.0
 DEFAULT_CPUS = "1"
 DEFAULT_MEMORY = "512m"
